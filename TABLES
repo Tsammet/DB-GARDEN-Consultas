@@ -6,9 +6,6 @@ CREATE TABLE pais (
     nombre VARCHAR (50) NOT NULL
     );
 
-INSERT INTO pais(nombre) VALUES ('Colombia');
-Select pais_id, nombre From pais;
-
 CREATE TABLE region (
     region_id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR (50) NOT NULL,
@@ -16,21 +13,12 @@ CREATE TABLE region (
     FOREIGN KEY (pais_id) REFERENCES pais(pais_id)
 );
 
-INSERT INTO region (nombre, pais_id) 
-VALUES ('Santander', 1), ('Antioquia', 1), ('Cundinamarca', 1);
-SELECT nombre, pais_id FROM region;
-
 CREATE TABLE ciudad(
     ciudad_id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR (50) NOT NULL,
     region_id INT,
     FOREIGN KEY (region_id) REFERENCES region(region_id)
 );
-
-INSERT INTO ciudad (nombre, region_id)
-VALUES ('Bucaramanga', 1), ('Piedecuesta',1),
-		('Medellin', 2), ('Guadalupe', 2),
-		('Bogotá', 3),('Zipaquirá', 3);
 
 CREATE TABLE gama_producto (
     gama_id VARCHAR(50) PRIMARY KEY,
